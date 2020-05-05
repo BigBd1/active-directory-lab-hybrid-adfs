@@ -8,7 +8,7 @@
 	[Parameter(Mandatory)]
 	[string]$WapFqdn
 )
-
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 $wmiDomain = Get-WmiObject Win32_NTDomain -Filter "DnsForestName = '$( (Get-WmiObject Win32_ComputerSystem).Domain)'"
 $DCName = $wmiDomain.DomainControllerName
 $ComputerName = $wmiDomain.PSComputerName
