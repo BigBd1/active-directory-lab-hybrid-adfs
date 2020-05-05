@@ -1,4 +1,5 @@
 $DscWorkingFolder = $PSScriptRoot
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
 configuration DomainController
 {
